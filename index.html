@@ -3,60 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
+  <title>Gia Hy Mai | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Your Name</h1>
-    <p>CS student • Projects • Notes</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#posts">Posts</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">Gia Hy Mai</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Hi, I'm Your Name. I study Computer Science and I use this website
-        to share my projects, notes, and personal progress.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="card">
-        <h3>Project 1</h3>
-        <p>Short description of your project.</p>
-        <a href="https://github.com/yourusername/project1" target="_blank">View project</a>
-      </div>
-
-      <div class="card">
-        <h3>Project 2</h3>
-        <p>Short description of your project.</p>
-        <a href="https://github.com/yourusername/project2" target="_blank">View project</a>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="tag">Computer Science Student</p>
+        <h1>Hi, I'm Gia Hy.</h1>
+        <p class="hero-text">
+          I use this website to share my projects, study notes, and personal progress.
+          I'm interested in software engineering, algorithms, and building useful things.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
       </div>
     </section>
 
-    <section id="posts">
-      <h2>Posts / Journal</h2>
-      <ul>
-        <li><a href="#">How I built my first project</a></li>
-        <li><a href="#">What I learned this week</a></li>
-        <li><a href="#">Notes on algorithms</a></li>
-      </ul>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <div class="card">
+          <p>
+            I'm a Computer Science student at TU Eindhoven. I enjoy learning deeply,
+            solving hard problems, and building projects that are both practical and interesting.
+          </p>
+          <p>
+            This site is my small corner on the internet where I collect things I build
+            and things I learn.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: yourname@example.com</p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="grid">
+          <article class="card project-card">
+            <h3>Smart Budget Meal Planner</h3>
+            <p>
+              A web app that helps students generate affordable meal plans based on budget,
+              calories, protein, and dietary constraints.
+            </p>
+            <a href="#">Project link</a>
+          </article>
+
+          <article class="card project-card">
+            <h3>Project Title 2</h3>
+            <p>
+              Write a short description here. Explain what the project does and what you used.
+            </p>
+            <a href="#">Project link</a>
+          </article>
+
+          <article class="card project-card">
+            <h3>Project Title 3</h3>
+            <p>
+              Another project can go here. Keep it short and clear.
+            </p>
+            <a href="#">Project link</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes" class="section">
+      <div class="container">
+        <h2>Notes / Journal</h2>
+        <div class="grid">
+          <article class="card note-card">
+            <h3>What I learned this week</h3>
+            <p>A short reflection about your study progress or technical learning.</p>
+            <a href="#">Read more</a>
+          </article>
+
+          <article class="card note-card">
+            <h3>My thoughts on building projects</h3>
+            <p>Write small blog-style posts here to make your site feel alive.</p>
+            <a href="#">Read more</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="card">
+          <p>Email: your-email@example.com</p>
+          <p>GitHub: <a href="https://github.com/giahymai" target="_blank">github.com/giahymai</a></p>
+          <p>LinkedIn: <a href="#">Add your LinkedIn here</a></p>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Gia Hy Mai. Built with GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
