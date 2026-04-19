@@ -2,33 +2,22 @@
    VARIABLES & RESET
    ============================================ */
 :root {
-  /* Warm dark red background — không quá tối, không quá sáng */
   --bg:         #1a0f0f;
   --bg-1:       #211313;
   --bg-2:       #2a1818;
   --bg-3:       #331e1e;
 
   --border:     rgba(255, 180, 160, 0.08);
-  --border-hi:  rgba(255, 180, 160, 0.16);
+  --border-hi:  rgba(255, 180, 160, 0.18);
 
   --text:       #f5ede8;
   --text-2:     #b89a93;
   --text-3:     #6e4f4a;
 
-  /* Accent: coral-red dịu, không gắt */
   --acc:        #ff8c6e;
   --acc-dim:    rgba(255, 140, 110, 0.12);
-  --acc-2:      #ffb89a;   /* lighter coral for headings */
-  --acc-hi:     #ffd0b8;   /* lightest — almost peach */
-
-  /* Code syntax colors — muted, warm */
-  --syn-kw:     rgba(255, 160, 120, 0.55);   /* keywords */
-  --syn-fn:     rgba(255, 210, 170, 0.45);   /* function names */
-  --syn-st:     rgba(200, 230, 180, 0.30);   /* strings */
-  --syn-nm:     rgba(180, 210, 255, 0.30);   /* numbers */
-  --syn-cm:     rgba(255, 255, 255, 0.18);   /* comments */
-  --syn-tp:     rgba(200, 180, 255, 0.30);   /* types */
-  --syn-an:     rgba(255, 200, 140, 0.35);   /* annotations */
+  --acc-2:      #ffb89a;
+  --acc-hi:     #ffd0b8;
 
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body:    'Plus Jakarta Sans', sans-serif;
@@ -44,7 +33,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  font-stretch: normal;           /* fix font kéo giãn */
+  font-stretch: normal;
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
@@ -56,10 +45,10 @@ body {
 a { color: inherit; text-decoration: none; }
 
 /* ============================================
-   CODE BACKGROUND DECORATION
+   BACKGROUND DECORATION
    ============================================ */
 
-.bg-code {
+.bg-deco {
   pointer-events: none;
   position: fixed;
   inset: 0;
@@ -67,60 +56,91 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 
-.code-block {
+/* Gradient orbs — warm, soft, subtle */
+.orb {
   position: absolute;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.7;
-  white-space: pre;
-  border-radius: 12px;
-  padding: 18px 22px;
-  background: rgba(255,255,255,0.018);
-  border: 1px solid rgba(255,180,140,0.07);
-  /* Very faint, purely decorative */
-  opacity: 1;
+  border-radius: 50%;
+  filter: blur(80px);
 }
 
-/* Syntax highlight colors — semitransparent so they feel embedded */
-.code-block .kw  { color: var(--syn-kw); }
-.code-block .fn  { color: var(--syn-fn); }
-.code-block .st  { color: var(--syn-st); }
-.code-block .nm  { color: var(--syn-nm); }
-.code-block .cm  { color: var(--syn-cm); font-style: italic; }
-.code-block .tp  { color: var(--syn-tp); }
-.code-block .an  { color: var(--syn-an); }
-/* Default text in code blocks */
-.code-block      { color: rgba(245, 220, 200, 0.18); }
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200, 60, 30, 0.18) 0%, transparent 70%);
+  top: -120px;
+  right: 5%;
+}
 
-/* Positions — scattered around, half hidden behind sidebar/content */
-.cb-1 {
-  top: 8%;
+.orb-2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(160, 40, 20, 0.14) 0%, transparent 70%);
+  bottom: 10%;
+  right: 20%;
+}
+
+.orb-3 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 120, 60, 0.10) 0%, transparent 70%);
+  top: 50%;
   right: 2%;
-  max-width: 340px;
-  transform: rotate(1.5deg);
 }
 
-.cb-2 {
-  bottom: 20%;
-  right: 1%;
-  max-width: 300px;
-  transform: rotate(-1deg);
+/* SVG grid layer */
+.bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.cb-3 {
-  top: 42%;
-  right: 3%;
-  max-width: 320px;
-  transform: rotate(0.8deg);
-  opacity: 0.85;
+/* Floating accent rings */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 140, 100, 0.10);
 }
 
-.cb-4 {
-  bottom: 3%;
-  left: 340px;   /* just past sidebar */
-  max-width: 340px;
-  transform: rotate(-1.2deg);
-  opacity: 0.75;
+.ring-1 {
+  width: 320px;
+  height: 320px;
+  top: 8%;
+  right: 8%;
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.ring-2 {
+  width: 180px;
+  height: 180px;
+  top: 18%;
+  right: 22%;
+  border-color: rgba(255, 140, 100, 0.07);
+  animation: float-slow 9s ease-in-out infinite reverse;
+}
+
+.ring-3 {
+  width: 80px;
+  height: 80px;
+  top: 35%;
+  right: 12%;
+  border-color: rgba(255, 160, 120, 0.15);
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Subtle horizontal scan line */
+.scan-line {
+  position: absolute;
+  left: 300px; /* past sidebar */
+  right: 0;
+  height: 1px;
+  top: 38%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,140,100,0.08) 20%, rgba(255,140,100,0.14) 50%, rgba(255,140,100,0.08) 80%, transparent 100%);
 }
 
 /* ============================================
@@ -153,7 +173,6 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    UTILITY
    ============================================ */
-
 .mono { font-family: var(--font-mono); }
 .dim  { color: var(--text-3); }
 
@@ -178,8 +197,9 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   height: 100vh;
   border-right: 1px solid var(--border);
-  background: rgba(26, 15, 15, 0.92);
-  backdrop-filter: blur(12px);
+  background: rgba(22, 11, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   overflow-y: auto;
   scrollbar-width: none;
 }
@@ -343,7 +363,9 @@ a { color: inherit; text-decoration: none; }
    ============================================ */
 
 .card {
-  background: var(--bg-1);
+  background: rgba(33, 19, 19, 0.80);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 26px 28px;
@@ -383,7 +405,7 @@ a { color: inherit; text-decoration: none; }
 .hero-sub {
   font-size: 1rem;
   color: var(--text-2);
-  max-width: 580px;
+  max-width: 560px;
   line-height: 1.75;
   margin-bottom: 28px;
 }
@@ -433,7 +455,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 24px;
   padding: 16px 22px;
-  background: var(--bg-1);
+  background: rgba(33, 19, 19, 0.80);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   width: fit-content;
@@ -719,7 +742,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 1040px) {
   .layout { grid-template-columns: 260px 1fr; }
   .content { padding: 36px 32px; }
-  .cb-4 { left: 280px; }
+  .scan-line { left: 260px; }
 }
 
 @media (max-width: 860px) {
@@ -733,25 +756,23 @@ a { color: inherit; text-decoration: none; }
   }
 
   .sidebar-inner { padding: 28px 20px; }
-
   .content { padding: 28px 20px; gap: 50px; }
 
   .about-grid,
   .project-grid { grid-template-columns: 1fr; }
 
   .featured-card { grid-row: auto; }
-
   .corner-deco { display: none; }
-
   .hero-stats { width: 100%; justify-content: space-around; }
 
-  .cb-1, .cb-2, .cb-3 { opacity: 0.5; }
-  .cb-4 { display: none; }
+  .orb-1 { width: 300px; height: 300px; }
+  .orb-2 { display: none; }
+  .ring-1, .ring-2 { opacity: 0.5; }
+  .scan-line { left: 0; }
 }
 
 @media (max-width: 540px) {
   .hero-heading { font-size: 1.9rem; }
   .section-heading { font-size: 1.45rem; }
   .footer { flex-direction: column; gap: 4px; text-align: center; }
-  .cb-1, .cb-2, .cb-3 { opacity: 0.3; font-size: 0.65rem; }
 }
