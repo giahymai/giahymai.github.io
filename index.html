@@ -11,59 +11,37 @@
 </head>
 <body>
 
-  <div class="bg-code" aria-hidden="true">
-    <pre class="code-block cb-1"><span class="kw">function</span> <span class="fn">bfs</span>(graph, start) {
-  <span class="kw">const</span> visited = <span class="kw">new</span> Set();
-  <span class="kw">const</span> queue = [start];
-  <span class="kw">while</span> (queue.length) {
-    <span class="kw">const</span> node = queue.shift();
-    <span class="kw">if</span> (visited.has(node)) <span class="kw">continue</span>;
-    visited.add(node);
-    queue.push(...graph[node]);
-  }
-  <span class="kw">return</span> visited;
-}</pre>
+  <!-- Background decoration -->
+  <div class="bg-deco" aria-hidden="true">
+    <!-- Soft gradient orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <pre class="code-block cb-2"><span class="cm">-- meal planner schema</span>
-<span class="kw">CREATE TABLE</span> meals (
-  id       <span class="tp">SERIAL PRIMARY KEY</span>,
-  name     <span class="tp">TEXT NOT NULL</span>,
-  calories <span class="tp">INT</span>,
-  budget   <span class="tp">NUMERIC(6,2)</span>
-);
-<span class="kw">SELECT</span> name, calories
-<span class="kw">FROM</span> meals
-<span class="kw">WHERE</span> budget &lt; <span class="nm">5.00</span>
-<span class="kw">ORDER BY</span> calories <span class="kw">DESC</span>;</pre>
+    <!-- SVG geometric grid + dots -->
+    <svg class="bg-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,140,100,0.045)" stroke-width="0.8"/>
+        </pattern>
+        <!-- Dot grid -->
+        <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="rgba(255,160,120,0.12)"/>
+        </pattern>
+      </defs>
+      <!-- Grid on the right half only -->
+      <rect x="50%" y="0" width="50%" height="100%" fill="url(#grid)"/>
+      <!-- Subtle dot scatter top-right -->
+      <rect x="60%" y="0" width="40%" height="45%" fill="url(#dots)" opacity="0.5"/>
+    </svg>
 
-    <pre class="code-block cb-3"><span class="an">@RestController</span>
-<span class="an">@RequestMapping</span>(<span class="st">"/api/meals"</span>)
-<span class="kw">public class</span> <span class="fn">MealController</span> {
-  <span class="an">@Autowired</span>
-  <span class="kw">private</span> MealService service;
+    <!-- Floating accent rings -->
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
 
-  <span class="an">@GetMapping</span>
-  <span class="kw">public</span> List&lt;Meal&gt; <span class="fn">getAll</span>() {
-    <span class="kw">return</span> service.findAll();
-  }
-}</pre>
-
-    <pre class="code-block cb-4"><span class="kw">def</span> <span class="fn">merge_sort</span>(arr):
-  <span class="kw">if</span> len(arr) &lt;= <span class="nm">1</span>:
-    <span class="kw">return</span> arr
-  mid = len(arr) // <span class="nm">2</span>
-  L = merge_sort(arr[:mid])
-  R = merge_sort(arr[mid:])
-  <span class="kw">return</span> merge(L, R)
-
-<span class="kw">def</span> <span class="fn">merge</span>(L, R):
-  result, i, j = [], <span class="nm">0</span>, <span class="nm">0</span>
-  <span class="kw">while</span> i &lt; len(L) <span class="kw">and</span> j &lt; len(R):
-    <span class="kw">if</span> L[i] &lt; R[j]:
-      result.append(L[i]); i += <span class="nm">1</span>
-    <span class="kw">else</span>:
-      result.append(R[j]); j += <span class="nm">1</span>
-  <span class="kw">return</span> result + L[i:] + R[j:]</pre>
+    <!-- Horizontal scan line -->
+    <div class="scan-line"></div>
   </div>
 
   <div class="corner-deco">
